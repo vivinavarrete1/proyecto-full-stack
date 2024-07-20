@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Agregar hotel</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.example.com/path-to-your-background-image.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
     <script>
     function validarFormulario(){
         var nombre = document.forms["formHotel"]["nombre"].value;
         var ubicacion = document.forms["formHotel"]["ubicacion"].value;
-        var habitaciones = document.forms["formHotel"]["habitaciones"].value;
-        var tarifa = document.forms["formHotel"]["tarifa"].value;
-    }
+        var habitaciones = document.forms["formHotel"]["habitaciones_disponibles"].value;
+        var tarifa = document.forms["formHotel"]["tarifa_noche"].value;
 
-    if(nombre == "" || ubicacion == "" || habitaciones == "" || tarifa == ""){
-        alert("Todos los campos son obligatorios.");
-        return false;
+        if(nombre == "" || ubicacion == "" || habitaciones == "" || tarifa == ""){
+            alert("Todos los campos son obligatorios.");
+            return false;
+        }
+        return true;
     }
-    return true;
     </script>
-    </head>
-    <body>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4 mb-5">
+        <h1>Proyecto Full Stack</h1>
+    </header>
+    <div class="container">
+        <h2 class="mb-4">Agregar hotel</h2>
         <form name="formHotel" action="registro_hotel.php" onsubmit="return validarFormulario()" method="post">
-            Nombre: <input type="text" name="nombre"><br>
-            Ubicación: <input type="text" name="ubicacion"><br>
-            Habitaciones disponibles:  <input type="text" name="habitaciones_disponibles"><br>
-            Tarifa por noche: <input type="text" name="tarifa_noche"><br>
-            <input type="submit" value="Agregar hotel">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación</label>
+                <input type="text" class="form-control" id="ubicacion" name="ubicacion">
+            </div>
+            <div class="form-group">
+                <label for="habitaciones_disponibles">Habitaciones disponibles</label>
+                <input type="text" class="form-control" id="habitaciones_disponibles" name="habitaciones_disponibles">
+            </div>
+            <div class="form-group">
+                <label for="tarifa_noche">Tarifa por noche</label>
+                <input type="text" class="form-control" id="tarifa_noche" name="tarifa_noche">
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar hotel</button>
         </form>
-    </body>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
+
